@@ -9,7 +9,7 @@ class RoundedButton(Button):
             self.background = RoundedRectangle(
                 pos=self.pos,
                 size=self.size,
-                radius=[20],  # Köşe yarıçapı
+                radius=[20],
             )
         self.background_color=(0,0,0,0)
         self.bind(pos=self.update_background, size=self.update_background)
