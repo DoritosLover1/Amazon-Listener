@@ -9,7 +9,6 @@ class RoundedButton(Button):
             Color(255/255, 153/255, 0/255, 1)
             self.rect = RoundedRectangle(pos=self.pos, size=self.size, radius=[15], padding=(20,10))
 
-        # Buton boyutu veya konumu değiştiğinde arka planı güncellemek için bind işlemi
         self.bind(pos=self.update_rect, size=self.update_rect)
         self.background_color=(0,0,0,0)
     def update_rect(self, *args):
