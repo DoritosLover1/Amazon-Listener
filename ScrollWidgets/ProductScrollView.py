@@ -22,17 +22,14 @@ class ProductScrollView(ScrollView):
             )
 
         self.bind(pos=self.update_background, size=self.update_background)
-
-        # ScrollView boyutlandırmasını ayarla
+        
         self.size_hint = kwargs.get("size_hint")
         self.pos_hint = kwargs.get("pos_hint")
 
-        # Kaydırılabilir içerik için GridLayout oluşturuluyor
         self.grid_layout = GridLayout(cols=1, spacing=10, size_hint_y=None)
         self.grid_layout.bind(minimum_height=self.grid_layout.setter('height'))
         self.add_widget(self.grid_layout)
 
-        # Ürün bilgilerini ekleme
         for element in self.set_of_element:
             product_layout = BoxLayout(orientation='horizontal', size_hint_y=None, height=100)
             product_image = Image(source=element["product_photo"], size_hint_x=None, width=100)
@@ -44,7 +41,6 @@ class ProductScrollView(ScrollView):
                 markup=True
             )
 
-            # Tıklanabilir hale getirmek için
             def open_url(instance, value):
                 if value:
                     webbrowser.open(instance.text.split('=')[1].split(']')[0])
@@ -61,7 +57,6 @@ class ProductScrollView(ScrollView):
             product_layout.add_widget(product_info)
             self.grid_layout.add_widget(product_layout)
 
-        # ScrollView içeriğinin kaydırılabilir olduğunu belirtin
         self.do_scroll_x = False
         self.do_scroll_y = True
 
